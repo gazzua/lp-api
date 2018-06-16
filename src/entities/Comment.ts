@@ -20,11 +20,11 @@ import {
     @Column()
     public content: string;
   
-    @TreeChildren()
-    children: Comment[];
+    // @TreeChildren()
+    // children: Comment[];
     
-    @TreeParent()
-    parent: Comment;
+    // @TreeParent()
+    // parent: Comment;
   
     @Column({
       default: 'D'
@@ -40,8 +40,13 @@ import {
     })
     public user: User;
   
-    @OneToOne((type) => Vote)
-    @JoinColumn()
+    @OneToOne((type) => Vote, {
+      cascade: true,
+      eager: true,
+    })
+    @JoinColumn({
+      name: 'voteId',
+    })
     public vote: Vote;
   
     @Column({

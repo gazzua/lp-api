@@ -2,6 +2,7 @@ import ApiURL from '@constants/ApiURL';
 import * as UserAction from './userAction';
 import * as DefinitionAction from './definitionAction';
 import * as CommentAction from './commentAction';
+import * as VoteAction from './voteAction';
 import HttpMethod from '@constants/HttpMethod';
 
 export default [
@@ -39,5 +40,15 @@ export default [
     action: CommentAction.postComments,
     method: HttpMethod.POST,
     path: ApiURL.COMMENTS,
+  },
+  {
+    action: VoteAction.upVote,
+    method: HttpMethod.POST,
+    path: ApiURL.VOTE_UP,
+  },
+  {
+    action: VoteAction.downVote,
+    method: HttpMethod.POST,
+    path: ApiURL.VOTE_DOWN,
   },
 ];

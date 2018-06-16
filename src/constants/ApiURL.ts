@@ -9,5 +9,8 @@ export default class ApiURL {
     public static SESSION_NEW = '/session/new';
     
     public static USER_NEW = '/user/new';
+
+    public static VOTE_UP = '/vote/up';
+    public static VOTE_DOWN = '/vote/down';
 };
   
