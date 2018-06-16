@@ -15,19 +15,20 @@ export default class DefinitionService {
     try {
       const termRepo = getCustomRepository(TermRepository, DB1);
       const checkTerm = await termRepo.findAndCount({label: param.definition.term.label});
+      // temp user setting
+      const user = new User();
+      user.id = 1;
       if (checkTerm[1] === 0) {
         const term = new Term();
         term.label = param.definition.term.label;
         term.status = 'N';
+        term.user = user;
         const insertedTerm = await termRepo.save(term)
         param.definition.term.id = insertedTerm.id;
       } else {
         param.definition.term.id = checkTerm[0][0].id;
       }
 
-      /// temp user setting
-      const user = new User();
-      user.id = 1;
       param.definition.user = user;
 
       const vote = new Vote();

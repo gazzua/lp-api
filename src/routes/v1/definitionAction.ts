@@ -7,7 +7,7 @@ import DefinitionGetParam from '@models/definition/DefinitionGetParam';
 
 export async function postDefinitionNew(req: Request, res: Response) {
   const param = new DefinitionAddParam({
-    definition: requireNonEmpty(req.body.definition),
+    definition: requireNonEmpty(req.body.definitions[0]),
   });
   return DefinitionService.addDefinition(param);
 }
