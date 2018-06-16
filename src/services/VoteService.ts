@@ -27,7 +27,7 @@ export default class VoteService {
         vote = data.vote;
       }
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
-      const check = await voteInstanceRepo.count({ where: { voteId: param.targetId, userId: param.userId } });
+      const check = await voteInstanceRepo.count({ where: { voteId: vote.id, userId: param.userId } });
       if (check > 0) {
         throw AppError.of({
           type: ResponseCode.USER_ALREADY_VOTE,
@@ -66,7 +66,7 @@ export default class VoteService {
         vote = data.vote;
       }
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
-      const check = await voteInstanceRepo.count({ where: { voteId: param.targetId, userId: param.userId } });
+      const check = await voteInstanceRepo.count({ where: { voteId: vote.id, userId: param.userId } });
       if (check > 0) {
         throw AppError.of({
           type: ResponseCode.USER_ALREADY_VOTE,
