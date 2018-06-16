@@ -1,4 +1,6 @@
 export default class ApiURL {
+    public static ADMIN_SEED = '/admin/seed';
+
     public static COMMENT_NEW = '/comment/new';
     public static COMMENTS = '/comments';
 

@@ -1,4 +1,5 @@
 import ApiURL from '@constants/ApiURL';
+import * as AdminAction from './adminAction';
 import * as UserAction from './userAction';
 import * as DefinitionAction from './definitionAction';
 import * as CommentAction from './commentAction';
@@ -6,6 +7,11 @@ import * as VoteAction from './voteAction';
 import HttpMethod from '@constants/HttpMethod';
 
 export default [
+  {
+    action: AdminAction.postAdminSeed,
+    method: HttpMethod.GET,
+    path: ApiURL.ADMIN_SEED,
+  },
   {
     action: UserAction.postUserNew,
     method: HttpMethod.POST,
