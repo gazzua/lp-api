@@ -34,7 +34,9 @@ import {
     @Column()
     public targetId: number;
   
-    @ManyToOne((type) => User)
+    @ManyToOne((type) => User, {
+      eager: true,
+    })
     @JoinColumn({
       name: 'userId',
     })
