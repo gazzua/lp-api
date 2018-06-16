@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
 
 import AppStatus from '@constants/AppStatus';
+import ResponseCode from '@constants/ResponseCode';
 import initialize from './initialize';
 import Logger from '@modules/Logger';
 import config from '@config/config';
@@ -32,8 +33,8 @@ app.use((req, res, next) => {
   } else if (state.status === AppStatus.DATABASE_ERROR) {
     res.status(500)
       .send({
-        code: "123",
-        message: "DBERROR",
+        code: ResponseCode.INITIALIZATION_ERROR.code,
+        message: ResponseCode.INITIALIZATION_ERROR.desc,
       });
   } else {
     next();

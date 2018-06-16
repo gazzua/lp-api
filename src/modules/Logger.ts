@@ -4,8 +4,7 @@ import * as util from 'util';
 import * as winston from 'winston';
 require('winston-daily-rotate-file');
 
-export const DEV_ENV = process.env.NODE_ENV === 'development';
-export const PROD_ENV = process.env.NODE_ENV === 'production';
+import { PROD_ENV } from '@utils/envUtils';
 
 const LOG_PATH = path.resolve(__dirname, '../../logs');
 if (!fs.existsSync(LOG_PATH)){
