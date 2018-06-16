@@ -5,7 +5,6 @@ import UserService from '@services/UserService';
 import UserParam from '@models/user/UserParam';
 
 export async function postUserNew(req: Request, res: Response) {
-  console.log('in');
   const param = new UserParam({
     email: requireNonEmpty(req.body.email),
     username: requireNonEmpty(req.body.username),
@@ -17,7 +16,6 @@ export async function postUserNew(req: Request, res: Response) {
 };
 
 export async function postSessionNew(req: Request, res: Response) {
-  console.log('in');
   const param = new UserParam({
     email: requireNonEmpty(req.body.email),
     password: requireNonEmpty(req.body.password),
