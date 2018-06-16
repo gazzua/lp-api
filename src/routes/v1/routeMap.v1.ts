@@ -34,5 +34,10 @@ export default [
     action: CommentAction.postCommentNew,
     method: HttpMethod.POST,
     path: ApiURL.COMMENT_NEW,
-  }
+  },
+  {
+    action: CommentAction.postComments,
+    method: HttpMethod.POST,
+    path: ApiURL.COMMENTS,
+  },
 ];
