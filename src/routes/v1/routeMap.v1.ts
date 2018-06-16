@@ -1,6 +1,7 @@
 import ApiURL from '@constants/ApiURL';
 import * as UserAction from './userAction';
 import * as DefinitionAction from './definitionAction';
+import * as CommentAction from './commentAction';
 import HttpMethod from '@constants/HttpMethod';
 
 export default [
@@ -29,4 +30,9 @@ export default [
     method: HttpMethod.POST,
     path: ApiURL.DEFINITIONS_$DEFINITIONID,
   },
+  {
+    action: CommentAction.postCommentNew,
+    method: HttpMethod.POST,
+    path: ApiURL.COMMENT_NEW,
+  }
 ];
