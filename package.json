@@ -2,9 +2,10 @@
   "name": "lp-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "yarn run build && cross-env NODE_ENV=development node ./dist/app.js",
+    "start:prod": "yarn run build && cross-env NODE_ENV=production node ./dist/app.js",
+    "test": ""
   },
   "author": "",
   "license": "ISC",

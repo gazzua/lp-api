@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",  
+    "moduleResolution": "node",
+    "outDir": "./tsc_out/",
+    "paths": {
+      "@config/*": [
+        "src/config/*" 
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@entities/*": [
+        "src/entities/*"
+      ],
+      "@middlewares/*": [
+        "src/middlewares/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@repos/*": [
+        "src/repositories/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    },
+    "lib": [
+      "es6",
+      "es7"
+    ],
+    "target": "es6"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*/__temp"
+  ]
+}
