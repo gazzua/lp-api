@@ -15,7 +15,7 @@ import {
   import Vote from '@entities/Vote';
   
   @Entity({ database: DB1 })
-  @Tree('materialized-path')
+  // @Tree('materialized-path')
   export default class Comment extends BaseEntity {
     @Column()
     public content: string;
