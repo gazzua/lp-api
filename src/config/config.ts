@@ -19,6 +19,12 @@ export default {
   app: {
     port: 4001,
   },
+  cors: {
+    whitelist: [
+      'http://localhost',
+      'http://127.0.0.1',
+    ],
+  },
   db: {
     db1: {
       development: {
