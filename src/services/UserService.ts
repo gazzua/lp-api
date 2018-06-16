@@ -73,8 +73,6 @@ export default class UserSignInService {
         },
       });
       if (user.length > 0) {
-        console.log('1235');
-
         throw AppError.of({
           type: ResponseCode.USER_ALREADY_REGISTERED,
         });

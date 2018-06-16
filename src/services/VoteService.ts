@@ -9,6 +9,8 @@ import Vote from '@entities/Vote';
 import User from '@entities/User';
 import VoteResult from '@models/vote/VoteResult';
 import { CommentRepository } from '@repos/CommentRepository';
+import AppError from "@models/AppError";
+import ResponseCode from '@constants/ResponseCode';
 
 export default class VoteService {
 
@@ -21,10 +23,16 @@ export default class VoteService {
         vote = data.vote;
       } else if (param.targetType === 'C') {
         const commentRepo = getCustomRepository(CommentRepository, DB1);
-        const data = await commentRepo.findOne({ where: { targetType: 'C', targetId: param.targetId} });
+        const data = await commentRepo.findOne(param.targetId);
         vote = data.vote;
       }
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
+      const check = await voteInstanceRepo.count({ where: { voteId: param.targetId, userId: param.userId } });
+      if (check > 0) {
+        throw AppError.of({
+          type: ResponseCode.USER_ALREADY_VOTE,
+        });
+      } 
       const voteInstance = new VoteInstance();
       voteInstance.action = 'U';
       voteInstance.vote = vote;
@@ -54,10 +62,16 @@ export default class VoteService {
         vote = data.vote;
       } else if (param.targetType === 'C') {
         const commentRepo = getCustomRepository(CommentRepository, DB1);
-        const data = await commentRepo.findOne({ where: { targetType: 'C', targetId: param.targetId} });
+        const data = await commentRepo.findOne(param.targetId);
         vote = data.vote;
       }
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
+      const check = await voteInstanceRepo.count({ where: { voteId: param.targetId, userId: param.userId } });
+      if (check > 0) {
+        throw AppError.of({
+          type: ResponseCode.USER_ALREADY_VOTE,
+        });
+      } 
       const voteInstance = new VoteInstance();
       voteInstance.action = 'D';
       voteInstance.vote = vote;

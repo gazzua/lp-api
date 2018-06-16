@@ -39,6 +39,11 @@ const ResponseCode = {
       desc: 'username is already registered',
       label: 'USER_ALREADY_REGISTERED',
     },
+    USER_ALREADY_VOTE : {
+      code: 401005,
+      desc: 'user is already vote',
+      label: 'USER_ALREADY_VOTE',
+    }
   };
   
 export default ResponseCode;
