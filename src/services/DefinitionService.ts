@@ -3,6 +3,8 @@ import {getCustomRepository} from 'typeorm';
 import {DefinitionRepository} from '@src/repositories/DefinitionRepository';
 import DefinitionAddParam from '@models/definition/DefinitionAddParam';
 import DefinitionAddResult from '@models/definition/DefinitionAddResult';
+import DefinitionGetParam from '@models/definition/DefinitionGetParam';
+import DefinitionGetResult from '@models/definition/DefinitionGetResult';
 import {TermRepository} from '@src/repositories/TermRepository';
 import Term from '@entities/Term';
 import Vote from '@entities/Vote';
@@ -37,11 +39,34 @@ export default class DefinitionService {
       param.definition.vote = vote;
       const definitionRepo = getCustomRepository(DefinitionRepository, DB1);
       const data = await definitionRepo.save(param.definition);
-      return new DefinitionAddResult({
-        definition: data
-      });
+      return new DefinitionAddResult(data);
     } catch (err) {
 
+    }
+  }
+
+  public static async getDefinitions(param: DefinitionGetParam) {
+    try {
+      const definitionRepo = getCustomRepository(DefinitionRepository, DB1);
+      const data = await definitionRepo.find({
+        skip: param.offset,
+        take: param.limit,
+      });
+      const result = new DefinitionGetResult(data);
+      return result;
+    } catch (err) {
+      // todos
+    }  
+  }
+
+  public static async getDefinitionById(param: DefinitionGetParam) {
+    try {
+      const definitionRepo = getCustomRepository(DefinitionRepository, DB1);
+      const data = await definitionRepo.findOne(param.definitionId);
+      const result = new DefinitionGetResult(data);
+      return result;
+    } catch (err) {
+      // todos
     }
   }
 };

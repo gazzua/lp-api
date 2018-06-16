@@ -19,4 +19,14 @@ export default [
     method: HttpMethod.POST,
     path: ApiURL.DEFINITION_NEW,
   },
+  {
+    action: DefinitionAction.postDefinitions,
+    method: HttpMethod.POST,
+    path: ApiURL.DEFINITIONS,
+  },
+  {
+    action: DefinitionAction.postDefinitionsDefinitionid,
+    method: HttpMethod.POST,
+    path: ApiURL.DEFINITIONS_$DEFINITIONID,
+  },
 ];

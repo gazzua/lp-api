@@ -13,3 +13,14 @@ export function requireNonEmpty(obj: string, err?) {
     return obj;
   }
 };
+
+export function optional(val1) {
+  return {
+    orElse: (val2) => {
+      return val1 ? val1 : val2;
+    },
+    onlyIfNull: (val2) => {
+      return val2 ? null : val1;
+    },
+  };
+};
