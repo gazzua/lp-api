@@ -1,0 +1,29 @@
+import { format } from 'util';
+
+import HttpStatus from '@constants/HttpStatus';
+import Logger from '@src/modules/Logger';
+import AppError from '@models/AppError';
+import { PROD_ENV } from '@utils/envUtils';
+import ResponseCode from '@constants/ResponseCode';
+
+export default function errorHandler(err, req, res, next) {
+  if (!(err instanceof Error)) {
+    err = AppError.of({
+      type: ResponseCode.NOT_ERROR_OBJECT,
+    });
+  }
+
+  if (!(err instanceof AppError)) {
+    const _err = err;
+    err = ResponseCode.RESPONSE_TYPE_NOT_API_RESULT;
+    err.stack = format('Original object: %j', _err);
+  }
+
+  Logger.error('[%s] %s\n%s', err.code, err.label, err.stack);
+
+  res.status(HttpStatus.ERROR)
+    .send({
+      code: err.code,
+      ...!PROD_ENV ? { message: err.desc }: {},
+    });
+};
