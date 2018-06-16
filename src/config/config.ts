@@ -19,10 +19,16 @@ export default {
   app: {
     port: 4001,
   },
+  auth: {
+    hashSalt: 10,
+    privateKey: 'secret',
+    tokenDuration: '1d',
+  },
   cors: {
     whitelist: [
       'http://localhost',
       'http://127.0.0.1',
+      'localhost:4001',
     ],
   },
   db: {

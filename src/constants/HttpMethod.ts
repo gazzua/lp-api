@@ -5,5 +5,5 @@ const HttpMethod = {
     DELETE: 'delete',
   };
   
-  export default HttpMethod;
+export default HttpMethod;
   

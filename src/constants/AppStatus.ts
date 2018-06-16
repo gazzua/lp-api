@@ -4,5 +4,5 @@ const AppStatus = {
     LAUNCHING: 'LAUNCHING',
   };
   
-  export default AppStatus;
+export default AppStatus;
   

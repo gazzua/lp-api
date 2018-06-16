@@ -5,7 +5,7 @@ import { ResponseTypeEntry } from '@models/ResponseTypeEntry';
 export const VERSION = Symbol('version');
 
 export default class AppError extends Error {
-  static [VERSION] = '0.0.2';
+  static [VERSION] = '0.0.1';
 
   public code: number;
   public desc: string;

@@ -13,7 +13,32 @@ const ResponseCode = {
         code: 400001,
         desc: 'Internal Error has occurred',
         label: 'RESPONSE_TYPE_NOT_API_RESULT',
-      },
+    },
+    RESPONSE_NOT_PROVIDED: {
+      code: 404002,
+      desc: 'Request is routed but did not get the response',
+      label: 'RESPONSE_NOT_PROVIDED',
+    },
+    SUCCESS: {
+      code: 200000,
+      desc: 'SUCCESS',
+      label: 'SUCCESS',
+    },
+    USER_CREDENTIAL_INVALID: {
+      code: 401001,
+      desc: 'user credential is invalid',
+      label: 'USER_CREDENTIAL_INVALID',
+    },
+    USER_NOT_FOUND: {
+      code: 401000,
+      desc: 'User is not found, email',
+      label: 'USER_NOT_FOUND',
+    },
+    USER_ALREADY_REGISTERED: {
+      code: 401004,
+      desc: 'username is already registered',
+      label: 'USER_ALREADY_REGISTERED',
+    },
   };
   
-  export default ResponseCode;
+export default ResponseCode;

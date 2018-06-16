@@ -4,5 +4,5 @@ const HttpStatus = {
     ERROR: 400,
   };
   
-  export default HttpStatus;
+export default HttpStatus;
   

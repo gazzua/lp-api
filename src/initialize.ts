@@ -3,8 +3,14 @@ import "reflect-metadata";
 
 import Database from '@modules/Database';
 import Logger from '@modules/Logger';
+import config from '@config/config';
+import Token from '@modules/Token';
 
 export default function initialize() {
+  Token.initialize({
+    privateKey: config.auth.privateKey,
+    tokenDuration: config.auth.tokenDuration,
+  });
 
   const conn = Database.initialize();
   conn.then((connections) => {
