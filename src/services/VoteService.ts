@@ -24,7 +24,6 @@ export default class VoteService {
         const data = await commentRepo.findOne({ where: { targetType: 'C', targetId: param.targetId} });
         vote = data.vote;
       }
-      console.log(vote);
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
       const voteInstance = new VoteInstance();
       voteInstance.action = 'U';
@@ -58,7 +57,6 @@ export default class VoteService {
         const data = await commentRepo.findOne({ where: { targetType: 'C', targetId: param.targetId} });
         vote = data.vote;
       }
-      console.log(vote);
       const voteInstanceRepo = getCustomRepository(VoteInstanceRepository, DB1);
       const voteInstance = new VoteInstance();
       voteInstance.action = 'D';

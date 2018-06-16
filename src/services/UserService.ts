@@ -72,7 +72,6 @@ export default class UserSignInService {
           email: param.email,
         },
       });
-      console.log('123',user);
       if (user.length > 0) {
         console.log('1235');
 
@@ -80,19 +79,16 @@ export default class UserSignInService {
           type: ResponseCode.USER_ALREADY_REGISTERED,
         });
       }
-      console.log('1444243');
       const hashedPassword = await Crypt.hash({
         data: param.password,
         hashSalt: config.auth.hashSalt,
       });
-      console.log('1243');
 
       const result = await userRepo.save(new User({
         email: param.email,
         password: hashedPassword,
         username: param.username,
       }));
-      console.log('result'+result);
       return new UserSignUpResult({
         user: {
           username: result.username,

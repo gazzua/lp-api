@@ -1,10 +1,10 @@
 import ApiResult from '@models/ApiResult';
 
 export default class UserSignInResult extends ApiResult {
-  public user;
+  public data;
   
   constructor(data) {
     super();
-    this.user = data;
+    this.data = data;
   }
 };
