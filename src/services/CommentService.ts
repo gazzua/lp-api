@@ -40,7 +40,6 @@ export default class CommentService {
       return new CommentGetResult(data);
     } catch (err) {
       throw err;
-
     }
   };
 };
