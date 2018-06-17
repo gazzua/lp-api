@@ -46,7 +46,7 @@ export default class VoteService {
       const voteRepo = getCustomRepository(VoteRepository, DB1);
       vote.upVoteCount++;
       const updatedVote = await voteRepo.save(vote);
-      const result = new VoteResult(updatedVote);
+      const result = new VoteResult({ vote: updatedVote, targetId: param.targetId });
       return result;
     } catch (err) {
       throw(err);
@@ -85,7 +85,7 @@ export default class VoteService {
       const voteRepo = getCustomRepository(VoteRepository, DB1);
       vote.downVoteCount++;
       const updatedVote = await voteRepo.save(vote);
-      const result = new VoteResult(updatedVote);
+      const result = new VoteResult({ vote: updatedVote, targetId: param.targetId });
       return result;
     } catch (err) {
       throw(err);

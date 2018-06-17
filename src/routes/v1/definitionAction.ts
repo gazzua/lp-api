@@ -14,7 +14,7 @@ export async function postDefinitionNew(req: Request, res: Response) {
 
 export async function postDefinitions(req: Request, res: Response) {
   const param = new DefinitionGetParam({
-    limit: optional(req.body.limit).orElse(10),
+    limit: optional(req.body.limit).orElse(50),
     offset: optional(req.body.offset).orElse(0),
     search: req.body.search,
   });
